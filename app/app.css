@@ -1,25 +1,48 @@
-/* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+.title {
+  margin: 25px 0;
 }
 
-.menu:before {
-  content: "[";
+#restaurant-note {
+  line-height: 2;
+  float: right;
 }
 
-.menu:after {
-  content: "]";
+#right {
+  float: right;
+  text-align: left;
 }
 
-.menu > li {
-  display: inline;
+#left {
+  float: left;
+  text-align: left;
 }
 
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
+#li-container {
+  margin: 0;
+  padding: 0;
+}
+
+#button {
+  width: 100%
+}
+
+#email {
+  text-align: right;
+  margin: 0
+}
+
+#prop {
+  margin: 0
+}
+
+#button-form {
+  margin: 0 14px
+}
+
+.headerTab {
+  border: 1px solid lightgray
+}
+
+.pointer {
+  cursor: pointer;
 }

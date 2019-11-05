@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{restaurant.nom}}</h5>
+        <div class="row">
+            <p class="card-text col" id="prop">Prorpiétaire : {{restaurant.proprietaire}}</p>
+            <p class="card-text col" id="email">Email : {{restaurant.email}}</p>
+        </div>
+
+        <br>
+
+        <form name="formrestaurant" novalidate>
+            <div class="row" style="color: red; height: 24px;">
+                <div class="col">
+                    <div ng-show="formrestaurant.date.$invalid && formrestaurant.date.$error.required">Veuillez écrire
+                        une date.
+                    </div>
+                    <div ng-show="formrestaurant.date.$error.pattern">La date est invalide.
+                    </div>
+                </div>
+                <div class="col">
+                    <div ng-show="formrestaurant.note.$invalid && formrestaurant.note.$error.required">Veuillez écrire
+                        une note.
+                    </div>
+                    <div ng-show="formrestaurant.note.$error.pattern">La note doit être entre 0 et 20.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group mb-3 col">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Dernière visite</span>
+                    </div>
+                    <input type="text" class="form-control" name="date" required ng-model="restaurant.derniereVisite"
+                        ng-pattern="/^\d{2}/\d{2}/\d{4}$/">
+                </div>
+
+                <div class="input-group mb-3 col">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Note</span>
+                    </div>
+                    <input type="text" class="form-control" name="note" value="{{restaurant.note}}" required
+                        ng-model="restaurant.note" ng-pattern="/^(?:[0-9]|0[0-9]|1[0-9]|20)$/">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">/20</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 24px; color: red;">
+                <div ng-show="formrestaurant.commentaire.$invalid && formrestaurant.commentaire.$dirty">
+                    Veuillez écrire
+                    un
+                    commentaire.</div>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Commentaire</span>
+                </div>
+                <textarea type="text" maxlength="255" class="form-control" name="commentaire" required
+                    ng-model="restaurant.commentaire"></textarea>
+            </div>
+
+            <div class="row">
+                <button type="button" class="btn btn-secondary col" id="button-form"
+                    ng-click="annuler()">Annuler</button>
+                <button type="submit" class="btn btn-primary col" id="button-form" ng-click="valider()"
+                    ng-disabled="formrestaurant.$invalid">Valider</button>
+            </div>
+        </form>
+    </div>
+</div>
