@@ -6,6 +6,7 @@
             <th scope="col">Adresse</th>
             <th scope="col">Dernière visite</th>
             <th scope="col">Note</th>
+            <th scope="col">Détails</th>
         </tr>
     </thead>
     <tbody>
@@ -16,29 +17,7 @@
                 {{restaurant.adresse.ville}}</td>
             <td>{{restaurant.derniereVisite}}</td>
             <td>{{restaurant.note}}</td>
+            <td><a href="#!details/{{key}}">Voir les détails</a></td>
         </tr>
     </tbody>
 </table>
-
-<!--
-<ul class="list-group">
-    <li class="list-group-item container" id="li-container" ng-repeat="(key, restaurant) in restaurants">
-        <button type='button' class="btn" ng-class="currentRestaurant(key)" id="button"
-            ng-click="changeSelectedItem(key)">
-            <div class="row">
-                <h5 class="card-title col" id="left">{{restaurant.nom}}</h5>
-                <div class="col">
-                    <h5 class="badge badge-success" id="restaurant-note">{{restaurant.note}}/20</h5>
-                </div>
-            </div>
-            <div class="row">
-                <span class="col" id="left">{{restaurant.adresse.numero}} {{restaurant.adresse.rue}},
-                    {{restaurant.adresse.cp}} {{restaurant.adresse.ville}}</span>
-                <div class="col">
-                    <span id="right"> Dernière visite le : {{restaurant.derniereVisite.toLocaleDateString()}}</span>
-                </div>
-            </div>
-        </button>
-    </li>
-</ul>
--->

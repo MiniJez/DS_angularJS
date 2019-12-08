@@ -1,14 +1,18 @@
 'use strict'
 var myModule = angular.module('myApp.directives');
-myModule.directive('detailsrestaurant', ['dataStorage', '$location', function (dataStorage, $location) {
+myModule.directive('inforestaurants', ['dataStorage', function (dataStorage) {
 
     return {
-        templateUrl: '/directives/detailsRestaurant/detailRestaurant.html',
+        templateUrl: '/directives/infoRestaurants/infoRestaurants.html',
         scope: {
             restaurants: "=",
             selected: "="
         },
         link: (scope) => {
+            if(scope.restaurants === undefined) {
+                scope.restaurants = dataStorage.get()
+            }
+
             scope.$watch(() => scope.selected, () => {
                 scope.restaurant = angular.copy(scope.restaurants[scope.selected])
                 scope.formrestaurant.$setPristine();
@@ -17,13 +21,18 @@ myModule.directive('detailsrestaurant', ['dataStorage', '$location', function (d
             scope.valider = () => {
                 angular.copy(scope.restaurant, scope.restaurants[scope.selected])
                 dataStorage.set(scope.restaurants)
-                $location.path("!#");
             }
 
             scope.annuler = () => {
                 scope.restaurant = angular.copy(scope.restaurants[scope.selected])
                 scope.formrestaurant.$setPristine();
-                $location.path("!#");
+            }
+
+            scope.supprimer = () => {
+                scope.restaurants = dataStorage.del(scope.restaurants[scope.selected])
+                scope.selected = 0
+                scope.restaurant = scope.restaurants[scope.selected]
+                scope.formrestaurant.$setPristine();
             }
         }
     };

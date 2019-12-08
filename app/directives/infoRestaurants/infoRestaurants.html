@@ -1,0 +1,78 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Détails</h5>
+
+        <br>
+
+        <form name="formrestaurant" novalidate>
+            <div class="row">
+                <div class="input-group mb-3 col">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Nom</span>
+                    </div>
+                    <input type="text" class="form-control" name="nom" required ng-model="restaurant.nom">
+                </div>
+
+                <div class="input-group mb-3 col">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Propriétaire</span>
+                    </div>
+                    <input type="text" class="form-control" name="proprietaire" value="{{restaurant.proprietaire}}"
+                        required ng-model="restaurant.proprietaire">
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Email</span>
+                </div>
+                <input type="email" class="form-control" name="email" value="{{restaurant.email}}" required
+                    ng-model="restaurant.email">
+            </div>
+            <div>
+                <h6>Adresse</h6>
+                <div class="row">
+                    <div class="input-group mb-3 col">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Numero</span>
+                        </div>
+                        <input type="text" class="form-control" name="numero" value="{{restaurant.adresse.numero}}" required
+                            ng-model="restaurant.adresse.numero">
+                    </div>
+
+                    <div class="input-group mb-3 col">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rue</span>
+                        </div>
+                        <input type="text" class="form-control" name="rue" value="{{restaurant.adresse.rue}}" required
+                            ng-model="restaurant.adresse.rue">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group mb-3 col">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Ville</span>
+                        </div>
+                        <input type="text" class="form-control" name="ville" value="{{restaurant.adresse.ville}}" required
+                            ng-model="restaurant.adresse.ville">
+                    </div>
+
+                    <div class="input-group mb-3 col">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Code postale</span>
+                        </div>
+                        <input type="text" class="form-control" name="cp" value="{{restaurant.adresse.cp}}" required
+                            ng-model="restaurant.adresse.cp">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-secondary col" id="button-form"
+                    ng-click="annuler()">Annuler</button>
+                <button type="submit" class="btn btn-primary col" id="button-form" ng-click="valider()"
+                    ng-disabled="formrestaurant.$invalid">Valider</button>
+                <button type="button" class="btn btn-danger col" id="button-form"
+                    ng-click="supprimer()">Supprimer</button>
+            </div>
+        </form>
+    </div>
+</div>

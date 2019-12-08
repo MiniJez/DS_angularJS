@@ -1,5 +1,5 @@
 'use strict'
-var myModule = angular.module('myApp');
+var myModule = angular.module('myApp.directives');
 myModule.directive('listrestaurants', [function () {
 
     return {
